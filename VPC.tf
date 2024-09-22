@@ -46,7 +46,3 @@ resource "aws_route_table_association" "publicRTAssociationB" {
   route_table_id = aws_route_table.privateRTApp.id
 }
 
-output "vpcOutput" {
-  description = "ID of the EC2 instance"
-  value       = aws_vpc.fiap51Vpc.id
-}

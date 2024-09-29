@@ -8,8 +8,8 @@ resource "aws_eks_node_group" "fiap51BurguerNode" {
 
 
   scaling_config {
-    desired_size = 1
-    max_size     = 2
+    desired_size = 2  # Aumentar se necessário
+    max_size     = 4  # Aumentar se necessário
     min_size     = 1
   }
 

@@ -10,15 +10,18 @@ resource "aws_vpc" "fiap51Vpc" {
 }
 
 #Cria 2 subnets 
-resource "aws_subnet" "privateSubnetA" {
+resource "aws_subnet" "subnetA" {
   vpc_id            = aws_vpc.fiap51Vpc.id
   availability_zone = "us-east-1a"
   cidr_block        = "10.0.1.0/24"
+  map_public_ip_on_launch = true    # Habilita a atribuição automática de IP público
 }
-resource "aws_subnet" "privateSubnetB" {
+resource "aws_subnet" "subnetB" {
   vpc_id            = aws_vpc.fiap51Vpc.id
   availability_zone = "us-east-1b"
   cidr_block        = "10.0.2.0/24"
+  map_public_ip_on_launch = true   # Habilita a atribuição automática de IP público
+  
 }
 
 #2 : create IGW
@@ -27,7 +30,7 @@ resource "aws_internet_gateway" "myIgw" {
 }
 
 #3 : route Tables for public subnet
-resource "aws_route_table" "privateRTApp" {
+resource "aws_route_table" "RTApp" {
   vpc_id = aws_vpc.fiap51Vpc.id
   route {
     cidr_block = "0.0.0.0/0"
@@ -36,13 +39,13 @@ resource "aws_route_table" "privateRTApp" {
 }
 
 #4 : route table association public subnet 
-resource "aws_route_table_association" "publicRTAssociationA" {
-  subnet_id      = aws_subnet.privateSubnetA.id
-  route_table_id = aws_route_table.privateRTApp.id
+resource "aws_route_table_association" "RTAssociationA" {
+  subnet_id      = aws_subnet.subnetA.id
+  route_table_id = aws_route_table.RTApp.id
 }
 
 resource "aws_route_table_association" "publicRTAssociationB" {
-  subnet_id      = aws_subnet.privateSubnetB.id
-  route_table_id = aws_route_table.privateRTApp.id
+  subnet_id      = aws_subnet.subnetB.id
+  route_table_id = aws_route_table.RTApp.id
 }
 

@@ -9,16 +9,11 @@ terraform {
   required_version = ">= 0.14.9"
 }
 
-#data "aws_eks_cluster" "default" {
-#  name = var.cluster_name
-#}
-
-#data "aws_eks_cluster_auth" "default" {
-#  name = var.cluster_name
-#}
-
-#provider "kubernetes" {
-#  host                   = data.aws_eks_cluster.default.endpoint
-#  cluster_ca_certificate = base64decode(data.aws_eks_cluster.default.certificate_authority[0].data)
-#  token                  = data.aws_eks_cluster_auth.default.token
-#}
+/* 
+provider "aws" {
+  profile = "default"
+  region  = "us-east-1"
+  access_key = ""
+  secret_key = ""
+  token = ""
+} */

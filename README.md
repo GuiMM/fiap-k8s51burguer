@@ -14,4 +14,6 @@
 3. Execute: terraform apply -input=false -var="arnNumber=id_da_conta"
 4. ao terminar: terraform destroy -input=false -var="arnNumber=id_da_conta"
 
-terraform destroy -input=false -var="arnNumber=375275125343"
+
+ex:
+terraform apply -input=false -var="arnNumber=375275125343"

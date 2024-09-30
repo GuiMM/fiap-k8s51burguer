@@ -16,4 +16,5 @@
 
 
 ex:
+terraform plan -input=false -var="arnNumber=375275125343"
 terraform apply -input=false -var="arnNumber=375275125343"

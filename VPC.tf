@@ -15,12 +15,18 @@ resource "aws_subnet" "subnetA" {
   availability_zone = "us-east-1a"
   cidr_block        = "10.0.1.0/24"
   map_public_ip_on_launch = true    # Habilita a atribuição automática de IP público
+  tags = {
+    Name = "public-subnet-eks-a"
+  }
 }
 resource "aws_subnet" "subnetB" {
   vpc_id            = aws_vpc.fiap51Vpc.id
   availability_zone = "us-east-1b"
   cidr_block        = "10.0.2.0/24"
   map_public_ip_on_launch = true   # Habilita a atribuição automática de IP público
+  tags = {
+    Name = "public-subnet-eks-b"
+  }
   
 }
 

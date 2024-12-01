@@ -1,5 +1,7 @@
 # fiap-k8s51burguer
 
+# execução por PIPE
+
 1. Passo 1 - Criar Bucket S3 51burguer-eks-backend-tf na AWS
  - aws s3api create-bucket --bucket 51burguer-eks-backend-tf --region us-east-1 
 2. pegar arnNumber e cadastrar na secret

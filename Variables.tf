@@ -13,7 +13,7 @@ variable "clusterName" {
 }
 
 variable "instanceNodeType" {
-  default = "t3.micro"
+  default = "t3.medium"
 }
 
 //teremos que passar via secret
